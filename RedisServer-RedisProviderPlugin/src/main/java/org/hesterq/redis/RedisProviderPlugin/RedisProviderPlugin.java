@@ -4,6 +4,7 @@ import org.hesterq.redis.Plugin;
 import org.hesterq.redis.PluginInterface;
 import org.kohsuke.MetaInfServices;
 import org.redisson.Redisson;
+import org.redisson.codec.MarshallingCodec;
 import org.redisson.config.Config;
 
 @MetaInfServices(PluginInterface.class)
@@ -17,7 +18,7 @@ public class RedisProviderPlugin extends Plugin {
 	@Override
 	public void enable() {
 		System.out.println(getPluginName() + "has been enabled!");
-        System.out.println("Connectiong to redis..");
+        System.out.println("Connecting to redis..");
 
         Config config = new Config();
         config.useSingleServer()

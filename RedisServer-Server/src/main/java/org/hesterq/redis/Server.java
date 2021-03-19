@@ -37,8 +37,15 @@ public class Server {
 	            if (a.toString().contains("RedisProvider")) {
 	                return 1;
                 }
+                if (b.toString().contains("RedisProvider")) {
+                    return -1;
+                }
+
                 if (a.toString().contains("ReaderPlugin") || a.toString().contains("WriterPlugin") ) {
                     return 1;
+                }
+                if (b.toString().contains("ReaderPlugin") || b.toString().contains("WriterPlugin") ) {
+                    return -1;
                 }
                 Comparator<String> c = Comparator.naturalOrder();
                 return c.compare(a.toString(), b.toString());
