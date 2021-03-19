@@ -21,6 +21,7 @@ public class RedisProviderPlugin extends Plugin {
         System.out.println("Connecting to redis..");
 
         Config config = new Config();
+        config.setCodec(new MarshallingCodec(getClass().getClassLoader()));
         config.useSingleServer()
                 .setAddress("redis://127.0.0.1:6379");
 
