@@ -1,19 +1,17 @@
-package org.hesterq.redis;
+package org.hesterq.redis.Data;
 
 import java.io.Serializable;
 import java.util.HashSet;
 
-public class LocalData implements Serializable {
+public class ExternalData implements Serializable {
+	private static final long serialVersionUID = -6875596114233658364L;
 
-	private static final long serialVersionUID = 8470784691458070376L;
-	private static LocalDataListener localDataListener = null;
-	
-	public static void setListener(LocalDataListener listener) {
-		LocalData.localDataListener = listener;
+	private static ExternalDataListener externalDataListener = null;
+	public static void setListener(ExternalDataListener listener) {
+		ExternalData.externalDataListener = listener;
 	}
-	
-	public static LocalDataListener getListener() {
-		return localDataListener;
+	public static ExternalDataListener getListener() {
+		return externalDataListener;
 	}
 	
 	private HashSet<String> nameList = new HashSet<String>();
@@ -35,11 +33,11 @@ public class LocalData implements Serializable {
 			sync();
 		}
 	}
-	
+
 	private void sync() {
 		if ( getListener() != null ) {
 			getListener().set(this);
 		}
 	}
-	
+
 }

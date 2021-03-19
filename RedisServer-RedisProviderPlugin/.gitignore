@@ -1,7 +1,5 @@
 /target/
 !.mvn/wrapper/maven-wrapper.jar
-.idea/
-*.iml
 
 ### STS ###
 .apt_generated
@@ -29,7 +27,6 @@ local.properties
 .loadpath
 .recommenders
 target/
-target
 
 # External tool builders
 .externalToolBuilders/

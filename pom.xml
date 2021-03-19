@@ -9,6 +9,8 @@
   <name>RedisServer-Parent</name>  
   <modules>
   	<module>RedisServer-Server</module>
-  	<module>RedisServer-Plugin</module>
+  	<module>RedisServer-WriterPlugin</module>
+    <module>RedisServer-ReaderPlugin</module>
+    <module>RedisServer-RedisProviderPlugin</module>
   </modules>
 </project>
