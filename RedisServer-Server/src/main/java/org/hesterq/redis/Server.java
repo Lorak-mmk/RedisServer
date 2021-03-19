@@ -54,7 +54,7 @@ public class Server {
 	        System.out.println("Found plugins: ");
 	        Arrays.asList(urls).forEach(url -> System.out.println(url.toString()));
 	        
-	        URLClassLoader ucl = new URLClassLoader(urls);
+	        LoggingClassLoader ucl = new LoggingClassLoader(urls);
 	        ServiceLoader<PluginInterface> sl = ServiceLoader.load(PluginInterface.class, ucl);
 
 	        Iterator<PluginInterface> pluginInterator = sl.iterator();
