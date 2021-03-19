@@ -20,12 +20,15 @@ public class RedisProviderPlugin extends Plugin {
 		System.out.println(getPluginName() + "has been enabled!");
         System.out.println("Connecting to redis..");
 
+        ClassLoader oldLoader = Thread.currentThread().getContextClassLoader();
+        Thread.currentThread().setContextClassLoader(getClass().getClassLoader());
         Config config = new Config();
         config.setCodec(new MarshallingCodec(getClass().getClassLoader()));
         config.useSingleServer()
                 .setAddress("redis://127.0.0.1:6379");
 
         setRedissonClient((Redisson) Redisson.create(config));
+        Thread.currentThread().setContextClassLoader(oldLoader);
 	}
 
     public static Redisson getRedissonClient() {
